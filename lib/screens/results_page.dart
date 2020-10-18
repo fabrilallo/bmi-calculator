@@ -5,12 +5,22 @@ import 'package:flutter/painting.dart';
 import '../components/bottom_button.dart';
 
 class ResultsPage extends StatelessWidget {
+  final String bmiValue;
+  final String bmiDescription;
+  final String bmiInterpretation;
+
+  ResultsPage(
+      {@required this.bmiValue,
+      @required this.bmiDescription,
+      @required this.bmiInterpretation});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text('BMI CALCULATOR'),
+        title: Text(
+          'BMI CALCULATOR',
+          textAlign: TextAlign.center,
         ),
       ),
       body: Column(
@@ -36,15 +46,15 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'OVERWEIGHT',
+                    this.bmiDescription,
                     style: kResultTextStyle,
                   ),
                   Text(
-                    '26.7',
+                    this.bmiValue,
                     style: kBMITextStyle,
                   ),
                   Text(
-                    'You have a higher then normal body weight. Try to exercise more.',
+                    this.bmiInterpretation,
                     textAlign: TextAlign.center,
                     style: kBodyTextStyle,
                   )
